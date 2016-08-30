@@ -1,12 +1,12 @@
 <h1>Install Docker and Set Up Docker Environment</h1>
-''' bash
+``` bash
 docker-machine start
-'''
-''' bash
+```
+``` bash
 docker-machine env
-'''
-''' bash
+```
+``` bash
 eval $(docker-machine env)
-'''
+```
 docker
 <b>Deploy a model</b>
