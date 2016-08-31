@@ -19,8 +19,39 @@
 <h2>Create a Dockerfile</h2>
 [Absolute README link](https://github.com/KenSciML/ModelCore/README.md)
 
-<b>Deploy a Model</b>
+<h2>Deploy a Model</h2>
 1. Set up the docker enviroment 
+Since all models docker settings are based on the modelcore, need to pull the kensci modelcore docker images before building the image 
+```bash
+docker pull kensci/modelcore:latest
+```
 2. Build the Dockerfile
+Direct to the same folder where the dockerfile locates and build the docker image have the tag on it 
+```bash
+docker build -t kensci/dupmodel:latest .
+Display the images:
+```
+docker images
+
+REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+kensci/dupmodel     latest              47cd0c5e4369        4 hours ago         710.7 MB
+kensci/clustering   latest              2c80f707bf1e        22 hours ago        763.6 MB
+kensci/modelcore    latest              07d9d958b344        22 hours ago        462.8 MB
+ubuntu              latest              f8d79ba03c00        2 weeks ago         126.4 MB
+```
+
+3. Deploy a model
+Example:
+```
+docker run -p 3333:80 -ti -v /Users/XinheWang/ModelBank/DuplicateDetection/sample-data:/tmp/sample-data kensci/dupmodel:latest deploy /tmp/sample-data/configuration.json /tmp/sample-data/metadata.json
+```
+-v mount the path
+-p expose the port number to 3333
+```
+
+4. Test
+From the web url set as: <local ip >
+
+
 
 
