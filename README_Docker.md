@@ -34,7 +34,7 @@ Display the images:
 ```
 docker images
 ```
-```
+``` bash
 REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
 kensci/dupmodel     latest              47cd0c5e4369        4 hours ago         710.7 MB
 kensci/clustering   latest              2c80f707bf1e        22 hours ago        763.6 MB
