@@ -57,7 +57,7 @@ Example:
 ```
 
 use -v to add data volume to a container, mount source code inside a container
--p expose the port number to 3333
+-p expose port to a certain port number
 
 <h3> Test </h3>
 	- API get the metadata of a model: local ip address/docker-machine default ip:3333/metadata
