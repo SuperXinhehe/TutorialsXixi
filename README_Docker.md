@@ -22,17 +22,24 @@
 <h2>Deploy a Model</h2>
 1. Set up the docker enviroment 
 Since all models docker settings are based on the modelcore, need to pull the kensci modelcore docker images before building the image 
+
+Every Dockerfile needs to include lines below
 ```bash
-docker pull kensci/modelcore:latest
+FROM kensci/modelcore:latest
+MAINTAINER KenSci
+```
+
+```bash
+>>> docker pull kensci/modelcore:latest
 ```
 2. Build the Dockerfile
 Direct to the same folder where the dockerfile locates and build the docker image have the tag on it 
 ```bash
-docker build -t kensci/dupmodel:latest .
+>>> docker build -t kensci/dupmodel:latest .
 ```
 Display the images:
 ```
-docker images
+>>> docker images
 ```
 ``` bash
 REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
@@ -45,14 +52,18 @@ ubuntu              latest              f8d79ba03c00        2 weeks ago         
 3. Deploy a model
 Example:
 ```
-docker run -p 3333:80 -ti -v /Users/XinheWang/ModelBank/DuplicateDetection/sample-data:/tmp/sample-data kensci/dupmodel:latest deploy /tmp/sample-data/configuration.json /tmp/sample-data/metadata.json
-```
--v mount the path
--p expose the port number to 3333
+>>> docker run -p 3333:80 -ti -v /Users/XinheWang/ModelBank/DuplicateDetection/sample-data:/tmp/sample-data kensci/dupmodel:latest deploy /tmp/sample-data/configuration.json /tmp/sample-data/metadata.json
 ```
 
+-v mount the path
+-p expose the port number to 3333
+
 4. Test
-From the web url set as: <local ip >
+API get the metadata of a model:
+ <local ip address/docker-machine default ip>:3333/metadata
+API get the score  (post api)
+<local ip address/docker-machine default ip>:3333/score
+
 
 
 
