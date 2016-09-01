@@ -20,7 +20,7 @@
 [Absolute README link](https://github.com/KenSciML/ModelCore/README.md)
 
 <h2>Deploy a Model</h2>
-1. Set up the docker enviroment 
+<h3> Set up the docker enviroment </h3>
 Since all models docker settings are based on the modelcore, need to pull the kensci modelcore docker images before building the image 
 
 Every Dockerfile needs to include lines below
@@ -28,12 +28,13 @@ Every Dockerfile needs to include lines below
 FROM kensci/modelcore:latest
 MAINTAINER KenSci
 ```
-
-```bash
+```bash 
 >>> docker pull kensci/modelcore:latest
 ```
-2. Build the Dockerfile
+
+<h3> Build the Dockerfile </h3>
 Direct to the same folder where the dockerfile locates and build the docker image have the tag on it 
+
 ```bash
 >>> docker build -t kensci/dupmodel:latest .
 ```
@@ -49,7 +50,7 @@ kensci/modelcore    latest              07d9d958b344        22 hours ago        
 ubuntu              latest              f8d79ba03c00        2 weeks ago         126.4 MB
 ```
 
-3. Deploy a model
+<h3> Deploy a model</h3>
 Example:
 ```
 >>> docker run -p 3333:80 -ti -v /Users/XinheWang/ModelBank/DuplicateDetection/sample-data:/tmp/sample-data kensci/dupmodel:latest deploy /tmp/sample-data/configuration.json /tmp/sample-data/metadata.json
@@ -58,7 +59,7 @@ Example:
 use -v to add data volume to a container, mount source code inside a container
 -p expose the port number to 3333
 
-4. Test
+<h3> Test </h3>
 	- API get the metadata of a model: local ip address/docker-machine default ip:3333/metadata
 	- API get the score  (post api): local ip address/docker-machine default ip:3333/score
 
