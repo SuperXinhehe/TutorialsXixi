@@ -55,14 +55,12 @@ Example:
 >>> docker run -p 3333:80 -ti -v /Users/XinheWang/ModelBank/DuplicateDetection/sample-data:/tmp/sample-data kensci/dupmodel:latest deploy /tmp/sample-data/configuration.json /tmp/sample-data/metadata.json
 ```
 
--v mount the path
+use -v to add data volume to a container, mount source code inside a container
 -p expose the port number to 3333
 
 4. Test
-API get the metadata of a model:
- <local ip address/docker-machine default ip>:3333/metadata
-API get the score  (post api)
-<local ip address/docker-machine default ip>:3333/score
+	- API get the metadata of a model: <local ip address/docker-machine default ip>:3333/metadata
+	- API get the score  (post api) <local ip address/docker-machine default ip>:3333/score
 
 
 
